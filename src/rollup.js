@@ -5,7 +5,7 @@ import svgr from './index'
 
 export default function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
-  const { babel = true } = options
+  const { babel = true, typescript } = options
 
   return {
     async transform(data, id) {

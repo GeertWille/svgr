@@ -17,4 +17,9 @@ describe('rename', () => {
     const result = rename('camel-case.svg', { ext: 'tsx' })
     expect(result).toBe('CamelCase.tsx')
   })
+
+  it('should change the extension to ts if typescript enabled', () => {
+    const result = rename('camel-case.svg', { typescript: true })
+    expect(result).toBe('CamelCase.ts')
+  })
 })

@@ -321,5 +321,14 @@ describe('convert', () => {
 `
       expect(await convert(svg, { titleProp: true })).toMatchSnapshot()
     })
+    
+    it('typescript', async () => {
+      const svg = `
+      <svg width="0" height="0" style="position:absolute">
+    <path d="M0 0h24v24H0z" fill="none" />
+</svg>
+`
+      expect(await convert(svg, { typescript: true })).toMatchSnapshot()
+    })
   })
 })

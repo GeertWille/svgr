@@ -32,6 +32,7 @@ program
   )
   .option('--keep-useless-defs', 'keep elements of <defs> without id (svgo)')
   .option('--native', 'add react-native support with react-native-svg')
+  .option('--typescript', 'add typescript support')
   .option(
     '--no-bracket-spacing',
     'print spaces between brackets in object literals (prettier)',

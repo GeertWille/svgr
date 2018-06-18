@@ -54,6 +54,19 @@ export default SvgComponent
 "
 `;
 
+exports[`convert options typescript 1`] = `
+"import * as React from 'react'
+
+const SvgComponent = (props: any) => (
+  <svg width={0} height={0} style={{ position: 'absolute' }} {...props}>
+    <path d=\\"M0 0h24v24H0z\\" fill=\\"none\\" />
+  </svg>
+)
+
+export default SvgComponent
+"
+`;
+
 exports[`convert should accept initial state (for webpack) 1`] = `
 "import React from 'react'
 

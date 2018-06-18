@@ -1,6 +1,7 @@
 import cosmiconfig from 'cosmiconfig'
 import jsx from 'h2x-plugin-jsx'
 import wrapIntoComponent from './transforms/wrapIntoComponent'
+import wrapIntoTsComponent from './transforms/wrapIntoTsComponent'
 import wrapIntoNativeComponent from './transforms/wrapIntoNativeComponent'
 import stripAttribute from './h2x/stripAttribute'
 import emSize from './h2x/emSize'
@@ -19,6 +20,7 @@ const defaultConfig = {
   dimensions: true,
   expandProps: true,
   ext: 'js',
+  typescript: false,
   icon: false,
   ids: false,
   jsxBracketSameLine: undefined, // default to prettier
@@ -85,6 +87,10 @@ function getPrettierConfig(config) {
 export function configToOptions(config = {}) {
   if (!config.template && config.native)
     config.template = wrapIntoNativeComponent
+  if (config.typescript) {
+    if (!config.template) config.template = wrapIntoTsComponent
+    config.ext = 'ts'
+  }
   config = { ...defaultConfig, ...config }
 
   return {

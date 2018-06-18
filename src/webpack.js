@@ -4,7 +4,8 @@ import convert from './'
 
 function svgrLoader(source) {
   const callback = this.async()
-  const { babel = true, ...options } = getOptions(this) || {}
+  const { babel = true, typescript, ...options } =
+    getOptions(this) || {}
 
   const readSvg = () =>
     new Promise((resolve, reject) => {

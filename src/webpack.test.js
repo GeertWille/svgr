@@ -5,6 +5,9 @@ import MemoryFs from 'memory-fs'
 function compile(rules) {
   const compiler = webpack({
     mode: 'development',
+    resolve: {
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    },
     context: __dirname,
     entry: './__fixtures__/icon.svg',
     output: {
@@ -71,6 +74,33 @@ describe('webpack loader', () => {
               loader: path.resolve(__dirname, './webpack.js'),
               options: {
                 babel: false,
+                expandProps: false,
+              },
+            },
+          ],
+        },
+      ])
+
+      expect(source).toMatchSnapshot()
+    },
+    15000,
+  )
+
+  it.only(
+    'should convert file for typescript',
+    async () => {
+      const source = await compile([
+        {
+          test: /\.svg$/,
+          use: [
+            // {
+            //   loader: 'ts-loader',
+            //   options: {},
+            // },
+            {
+              loader: path.resolve(__dirname, './webpack.js'),
+              options: {
+                typescript: true,
                 expandProps: false,
               },
             },

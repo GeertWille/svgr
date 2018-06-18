@@ -56,7 +56,9 @@
     "prettier": "^1.12.1",
     "recursive-readdir": "^2.2.2",
     "rollup-pluginutils": "^2.3.0",
-    "svgo": "^1.0.5"
+    "svgo": "^1.0.5",
+    "ts-loader": "^4.4.1",
+    "typescript": "^2.9.2"
   },
   "bin": {
     "svgr": "./bin/svgr"

@@ -197,4 +197,9 @@ describe('cli', () => {
     const [stdout] = await exec('bin/svgr --title-prop __fixtures__/one.svg')
     expect(stdout).toMatchSnapshot()
   })
+
+  it('--typescript', async () => {
+    const [stdout] = await exec('bin/svgr --typescript __fixtures__/one.svg')
+    expect(stdout).toMatchSnapshot()
+  })
 })
